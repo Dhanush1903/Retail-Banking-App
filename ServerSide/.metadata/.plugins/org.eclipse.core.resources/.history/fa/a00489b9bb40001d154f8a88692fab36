@@ -20,7 +20,7 @@ public class StatementController {
 IstatementService istatementService;
 // get Account statement
 @GetMapping("/getstatement/{accountId}/{from_date}/{to_date}")
-public List<Statement> getbyaccountId(@PathVariable Integer accountId, @PathVariable("from_date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date from_date, @PathVariable("to_date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date to_date){
+public List<Statement> getbyaccountId(@PathVariable Integer accountId, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date from_date, @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date to_date){
 	List<Statement> statements = istatementService.getbyaccountId(accountId,from_date,to_date);
 	return statements;
 }

@@ -56,4 +56,5 @@ public class AccountController {
 		TransactionStatus transaction= iaccountService.withdrawAmount(account, accountId );
 		return transaction;
 	}
-	}
+	
+}
