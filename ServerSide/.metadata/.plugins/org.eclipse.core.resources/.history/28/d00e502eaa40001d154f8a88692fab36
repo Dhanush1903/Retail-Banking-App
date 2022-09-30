@@ -1,0 +1,44 @@
+package com.account.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
+public class TransactionStatus {
+	@Id
+	private Integer accountId;
+	private String source_balance;
+	private String destination_balance;
+	public Integer getAccountId() {
+		return accountId;
+	}
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
+	}
+	public String getSource_balance() {
+		return source_balance;
+	}
+	public void setSource_balance(String source_balance) {
+		this.source_balance = source_balance;
+	}
+	public String getDestination_balance() {
+		return destination_balance;
+	}
+	public void setDestination_balance(String destination_balance) {
+		this.destination_balance = destination_balance;
+	}
+	public TransactionStatus(Integer accountId, String source_balance, String destination_balance) {
+		super();
+		this.accountId = accountId;
+		this.source_balance = source_balance;
+		this.destination_balance = destination_balance;
+	}
+	public TransactionStatus() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "TransactionStatus [accountId=" + accountId + ", source_balance=" + source_balance
+				+ ", destination_balance=" + destination_balance + "]";
+	}
+	
+}

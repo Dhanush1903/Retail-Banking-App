@@ -1,0 +1,27 @@
+package com.account.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.account.entity.Account;
+import com.account.entity.AccountCreationStatus;
+import com.account.service.IAccountService;
+
+
+
+@RestController
+public class AccountController {
+	@Autowired
+	IAccountService iaccountService;
+	
+//	create an account
+	@PostMapping("/book")
+	AccountCreationStatus createAccount(@RequestBody Account account) throws Exception {
+		AccountCreationStatus acc= iaccountService.saveAccount(account);
+		
+		return acc;
+	}
+}
+

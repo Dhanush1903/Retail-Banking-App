@@ -1,0 +1,13 @@
+package com.account.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.account.repository.AccountRepo;
+
+@Service
+public class AccountServiceImpl implements IAccountService {
+@Autowired
+AccountRepo accountRepo;
+	
+}

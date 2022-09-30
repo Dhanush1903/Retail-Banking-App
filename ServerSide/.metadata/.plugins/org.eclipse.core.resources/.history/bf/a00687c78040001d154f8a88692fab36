@@ -1,0 +1,9 @@
+package com.account.service;
+
+import com.account.entity.Account;
+
+public interface IAccountService {
+
+	Account saveAccount(Account account);
+
+}
