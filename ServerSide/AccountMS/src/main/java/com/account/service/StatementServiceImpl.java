@@ -20,4 +20,12 @@ public List<Statement> getbyaccountId(Integer accountId, Date from_date, Date to
 	return statementrepo.findByaccountId(accountId);
 }
 
+
+@Override
+public Statement saveStatement(Statement statement) {
+	// TODO Auto-generated method stub
+	
+	return statementrepo.save(statement);
+}
+
 }

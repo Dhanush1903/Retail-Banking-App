@@ -1,0 +1,61 @@
+
+<div *ngIf="alert" class="alert alert-success" role="alert">
+  {{accountCreationStatus.message}}. Your Account Id is {{accountCreationStatus.accountId}}
+</div>
+<section class="vh-100 bg-image"
+  style="background-image: url('https://images.unsplash.com/photo-1582139329536-e7284fece509?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');"class="image">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h5 style="text-align: center;">Welcome</h5>
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form >
+
+                <div class="form-outline mb-4">
+                  <input required type="text" 
+                  name="name"id="form3Example1cg" placeholder="Savings/Current" #accountType="ngModel" [(ngModel)]=account.accountType  class="form-control form-control-lg" />
+                  <div class="alert alert-danger" *ngIf=" accountType.touched && !accountType.valid">Account Type is Required</div>
+                  <label class="form-label" for="form3Example1cg">Account Type</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input required type="balance" id="form3Example3cg"
+                  name="Balance" #balance="ngModel" placeholder="" [(ngModel)]=account.balance class="form-control form-control-lg" />
+                  <div class="alert alert-danger" *ngIf=" balance.touched && !balance.valid">Balance</div>
+                  <label class="form-label" for="form3Example3cg">Balance</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input required type="customerId"
+                  name="customerId"
+                  #customerId="ngModel"  id="form3Example4cg" [(ngModel)]=account.customerId  class="form-control form-control-lg" />
+                  <div class="alert alert-danger" *ngIf=" customerId.touched && !customerId.valid">Customer Id is Required.</div>
+                  <label class="form-label" for="form3Example4cg">Customer ID</label>
+                </div>
+
+               
+
+                
+                <div class="d-flex justify-content-center">
+                  <button type="button" 
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="registerAccount()">Register</button>
+                </div>
+              </form>
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" routerLink="/login"
+                    class="fw-bold text-body"><u >Login here</u></a></p>
+                    
+
+            
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,45 +16,49 @@ import com.account.entity.AccountCreationStatus;
 import com.account.entity.TransactionStatus;
 import com.account.service.IAccountService;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 
 
 @RestController
+@CrossOrigin
 public class AccountController {
 	@Autowired
 	IAccountService iaccountService;
 	
 //	create an account
 	@PostMapping("/create")
-	AccountCreationStatus createAccount(@RequestBody Account account) throws Exception {
+	public Mono<AccountCreationStatus> createAccount(@RequestBody Account account) throws Exception {
 		AccountCreationStatus acc= iaccountService.saveAccount(account);
-		return acc;
+		return Mono.just(acc);
 	}
 	
 //	get Customer Accounts
 	@GetMapping("/getbycustomerId/{customerId}")
-	public List<Account> getbycustomerId(@PathVariable Integer customerId){
+	public Flux<List<Account>>getbycustomerId(@PathVariable Integer customerId){
 		List<Account> accounts = iaccountService.getbycustomerId(customerId);
-		return accounts;
+		return Flux.just(accounts);
 	}
 	
 //	get particular customer account
 	@GetMapping("/getbyaccountId/{accountId}")
-	public Optional<Account> getbyaccountId(@PathVariable Integer accountId){
+	public Mono<Optional<Account>> getbyaccountId(@PathVariable Integer accountId){
 		Optional<Account> account = iaccountService.getbyaccountId(accountId);
-		return account;
+		return Mono.just(account);
 }
 	
 //	deposit amount
 	@PostMapping("/deposit/{accountId}")
-	TransactionStatus depositAmount(@RequestBody Account account,@PathVariable Integer accountId) throws Exception {
+	public Mono<TransactionStatus> depositAmount(@RequestBody Account account,@PathVariable Integer accountId) throws Exception {
 		TransactionStatus transaction= iaccountService.depositAmount(account, accountId );
-		return transaction;
+		return Mono.just(transaction);
 	}
 	
 //	withdraw amount
 	@PostMapping("/withdraw/{accountId}")
-	TransactionStatus withdrawAmount(@RequestBody Account account,@PathVariable Integer accountId) throws Exception {
+	public Mono<TransactionStatus> withdrawAmount(@RequestBody Account account,@PathVariable Integer accountId) throws Exception {
 		TransactionStatus transaction= iaccountService.withdrawAmount(account, accountId );
-		return transaction;
+		return Mono.just(transaction);
 	}
 	}
