@@ -50,7 +50,7 @@ public class AccountController {
 	
 //	deposit amount
 	@PostMapping("/deposit/{accountId}")
-	public Mono<TransactionStatus> depositAmount(@RequestBody Account account,@PathVariable Integer accountId) throws Exception {
+	public Mono<TransactionStatus> depositAmount(@PathVariable Integer accountId,@RequestBody Account account) throws Exception {
 		TransactionStatus transaction= iaccountService.depositAmount(account, accountId );
 		return Mono.just(transaction);
 	}

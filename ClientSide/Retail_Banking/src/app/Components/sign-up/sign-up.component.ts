@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Account from 'Entity/Account';
 import AccountCreationStatus from 'Entity/AccountCreationStatus';
 import { AccountService } from 'src/app/account.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -13,7 +14,7 @@ export class SignUpComponent implements OnInit {
   accounts:Account[]=[];
   accountCreationStatus:AccountCreationStatus=new AccountCreationStatus();
   alert:boolean=false
-  constructor(public accountService:AccountService) { }
+  constructor(public accountService:AccountService, public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,16 @@ export class SignUpComponent implements OnInit {
         console.log(response)
         this.alert=true
         this.accountCreationStatus=response as AccountCreationStatus;
-      },
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Registered Sucessfully',
+          showConfirmButton: false,
+          timer: 1900
+        })
+        
+      }
+      ,
       function(error){
         console.log(error);
         alert("Something went wrong please try again!")
@@ -33,5 +43,6 @@ export class SignUpComponent implements OnInit {
     )
 
   }
+
 
 }
