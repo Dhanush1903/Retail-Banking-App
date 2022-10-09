@@ -1,0 +1,123 @@
+
+<div class="container">
+<h3>Statements</h3>
+<div>
+    
+</div>
+
+<div class="input-group">
+    <span class="input-group-text">Account Id</span>
+    <input type="text"  placeholder="Enter your Account Id" [(ngModel)]=statement.accountId aria-label="First name"
+        class="form-control">
+
+</div>
+
+
+
+
+<br>
+<div class="input-group">
+    <span class="input-group-text">From Date</span>
+    <input type="date"   aria-label="" [(ngModel)]=statement.from_date
+        class="form-control">
+
+</div>
+
+<br>
+<div class="input-group">
+    <span class="input-group-text">To Date</span>
+    <input type="date"   aria-label="" [(ngModel)]=statement.to_date
+        class="form-control">
+
+</div>
+
+<br>
+<button class="btn btn-primary" (click)="getStatements()">Submit</button>
+</div>
+
+
+<table class="table table-dark table-striped-columns">
+
+  <thead>
+      <tr>
+          <th>refNo</th>
+          <th>from_date</th>
+          <th>to_date</th>
+          <th>narration</th>
+          <th>valueDate</th>
+          <th>withdrawal</th>
+          <th>deposit</th>
+          <th>closingBalance</th>
+          <th>accountId</th>
+
+
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let statement of statements">
+          <td>{{statement.refNo}}</td>
+          <td>{{statement.from_date}}</td>
+          <td>{{statement.to_date}}</td>
+          <td>{{statement.narration}}</td>
+          <td>{{statement.valueDate}}</td>
+          <td>{{statement.withdrawal}}</td>
+          <td>{{statement.deposit}}</td>
+          <td>{{statement.closingBalance}}</td>
+          <td>{{statement.accountId}}</td>
+          
+
+
+      </tr>
+  </tbody>
+
+</table>
+
+
+<h2 style="color: brown;">Search Results</h2>
+<div class="row gy-2 my-2">
+    <div class="col-sm-2" *ngFor="let statement of statements">
+        <div class="card">
+            
+            <div class="card-bodys">
+                <p class="card-texts">
+                    <label> Book Id: </label>
+                    {{statement.refNo}}
+                </p>
+                <p class="card-texts">
+                    <label> Title: </label>
+                    {{statement.from_date}}
+                </p>
+                <p class="card-texts">
+                    <label> Price: </label>
+                    {{statement.to_date}}
+                </p>
+                <p class="card-texts">
+                    <label> Publisher: </label>
+                    {{statement.narration}}
+                </p>
+                <p class="card-texts">
+                    <label> Category: </label>
+                    {{statement.valueDate}}
+                </p>
+                <p class="card-texts">
+                    <label> Active: </label>
+                    {{statement.withdrawal}}
+                </p>
+                <p class="card-texts">
+                    <label> Content: </label>
+                    {{statement.deposit}}
+                </p>
+                
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

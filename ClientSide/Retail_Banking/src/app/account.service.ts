@@ -47,6 +47,11 @@ export class AccountService {
     return this.http.post("http://localhost:8081/withdraw"+"/"+accountId,accounts)
   }
 
+  getStatements(accountId:any,from_date:any,to_date:any){
+    return this.http.get("http://localhost:8081/getstatement/"+accountId+'/'+from_date+'/'+to_date);
+    // "http://35.164.160.147:8083/searchBy/"
+  }
+
 
 
 }

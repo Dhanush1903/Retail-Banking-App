@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import { CustomerAccountComponent } from './Components/customer-account/customer-account.component';
 import { DepositComponent } from './Components/deposit/deposit.component';
+import { StatementsComponent } from './Components/statements/statements.component';
+import { StatementListComponent } from './Components/statement-list/statement-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { DepositComponent } from './Components/deposit/deposit.component';
     HomeComponent,
     SignUpComponent,
     CustomerAccountComponent,
-    DepositComponent
+    DepositComponent,
+    StatementsComponent,
+    StatementListComponent
   ],
   imports: [
     BrowserModule,
