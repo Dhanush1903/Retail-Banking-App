@@ -1,1 +1,104 @@
-<p>statement-list works!</p>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-100">
+          <img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+         
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3" style="color: rgb(4, 4, 70);">Find Your Account Details Here</p>
+            </div>
+  
+            <br>
+  
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="form3Example3" [(ngModel)]=account.accountId class="form-control form-control-lg"
+                placeholder="Enter your Account Id" />
+                <button type="button" class="btn btn-primary" (click)="getAccount(account.accountId)" data-toggle="modal" data-target="#exampleModal">
+                  Submit
+                 </button>
+              </div>
+          
+        </div>
+      </div>
+    </div>
+    <br>
+    <br><br><br>
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0">
+        SBI © State Bank Of India. All rights reserved.
+      </div>
+      <!-- Copyright -->
+  
+      <!-- Right -->
+      <div>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </div>
+  </section>
+  
+  
+  <!-- Modal -->
+  <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header float-right">
+          <h5>Account Details</h5>
+          <div class="text-right">
+            <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i>
+          </div>
+        </div>
+        <div class="modal-body">
+            
+  
+  
+          <div>
+            
+            <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Account Id</th>
+        <th scope="col">Account Type</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Customer Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{account.accountId}}</th>
+        <td>{{account.accountType}}</td>
+        <td>{{account.balance}}</td>
+        <td>{{account.customerId}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+          </div>
+  
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>

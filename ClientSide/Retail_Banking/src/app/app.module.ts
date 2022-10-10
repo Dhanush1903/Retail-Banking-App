@@ -12,6 +12,7 @@ import { CustomerAccountComponent } from './Components/customer-account/customer
 import { DepositComponent } from './Components/deposit/deposit.component';
 import { StatementsComponent } from './Components/statements/statements.component';
 import { StatementListComponent } from './Components/statement-list/statement-list.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { StatementListComponent } from './Components/statement-list/statement-li
     CustomerAccountComponent,
     DepositComponent,
     StatementsComponent,
-    StatementListComponent
+    StatementListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

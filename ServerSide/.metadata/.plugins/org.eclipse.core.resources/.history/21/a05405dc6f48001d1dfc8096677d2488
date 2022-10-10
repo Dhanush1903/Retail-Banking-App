@@ -34,7 +34,12 @@ public class AccountController {
 		return Mono.just(acc);
 	}
 	
-
+//	get Customer Accounts
+	@GetMapping("/getbycustomerId/{customerId}")
+	public Flux<List<Account>>getbycustomerId(@PathVariable Integer customerId){
+		List<Account> accounts = iaccountService.getbycustomerId(customerId);
+		return Flux.just(accounts);
+	}
 	
 //	get particular customer account
 	@GetMapping("/getbyaccountId/{accountId}")
@@ -56,19 +61,4 @@ public class AccountController {
 		TransactionStatus transaction= iaccountService.withdrawAmount(account, accountId );
 		return Mono.just(transaction);
 	}
-	
-//	get Customer Accounts
-	@GetMapping("/getbycustomerId/{customerId}")
-	public List<Account>getbycustomerId(@PathVariable Integer customerId){
-		List<Account> accounts = iaccountService.getbycustomerId(customerId);
-		return accounts;
-	}
-	
-//	get Customer Accounts
-//	@GetMapping("/getbycustomerId/{customerId}")
-//	public Flux<List<Account>>getbycustomerId(@PathVariable Integer customerId){
-//		List<Account> accounts = iaccountService.getbycustomerId(customerId);
-//		return Flux.just(accounts);
-//	}
-	
 	}

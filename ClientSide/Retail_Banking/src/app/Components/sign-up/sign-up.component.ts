@@ -14,6 +14,7 @@ export class SignUpComponent implements OnInit {
   accounts:Account[]=[];
   accountCreationStatus:AccountCreationStatus=new AccountCreationStatus();
   alert:boolean=false
+  open:boolean=false
   constructor(public accountService:AccountService, public router: Router) { }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class SignUpComponent implements OnInit {
     )
 
   }
+
 
 
 }

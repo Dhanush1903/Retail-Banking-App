@@ -28,18 +28,9 @@ export class CustomerAccountComponent implements OnInit {
 
   }
 
-  getAccount(accountId:number){
-    this.alert=true
-    const promise=this.accountService.getAccount(accountId); 
-    promise.subscribe((response)=>{
-      console.log(response);
-      this.account=response as Account;
-      
-    })
-
-}
+ 
 getCustomerAccounts(customerId:number){
-  
+  this.alert=true
   const promise=this.accountService.getCustomerAccounts(customerId); 
   promise.subscribe((response)=>{
     console.log(response);
