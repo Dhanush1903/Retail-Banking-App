@@ -109,7 +109,7 @@
       <tr *ngFor="let account of accounts">
         <td>{{account.accountId}}</td>
         <td>{{account.accountType}}</td>
-        <td>{{account.balance}}</td>
+        <td>{{account.balance | currency:'INR'}}</td>
         <td>{{account.customerId}}</td>
       </tr>
      

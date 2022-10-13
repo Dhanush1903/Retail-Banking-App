@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
+import org.springframework.lang.NonNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,11 +27,11 @@ public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer accountId;
-//	@NotBlank
+   @NotBlank(message = "AccountType cannot be blank")
 	private String accountType;
-//	@NotBlank
+   
 	private Long balance;
-//	@NotBlank
+   
 	private Integer customerId;
 	
 		

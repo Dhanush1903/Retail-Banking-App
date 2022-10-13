@@ -1,0 +1,32 @@
+package com.account.controller;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.account.entity.Statement;
+import com.account.service.IAccountService;
+import com.account.service.IstatementService;
+
+@ExtendWith(MockitoExtension.class)
+public class StatementTestController {
+	@Mock
+	IstatementService statementService;
+	
+	@InjectMocks
+	StatementController statementController;
+	
+	
+	@Test
+	void testgetbyaccountId () {
+		Statement statement = new Statement();
+		statement.setAccountId(1);
+		statement.setFrom_date( 2018-03-11);
+		statement.setTo_date("2020-03-11");
+	}
+
+}

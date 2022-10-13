@@ -85,7 +85,7 @@
       <tr>
         <th scope="row">{{account.accountId}}</th>
         <td>{{account.accountType}}</td>
-        <td>{{account.balance}}</td>
+        <td>{{account.balance | currency:'INR'}}</td>
         <td>{{account.customerId}}</td>
       </tr>
     </tbody>

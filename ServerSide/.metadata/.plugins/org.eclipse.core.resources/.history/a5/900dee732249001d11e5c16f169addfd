@@ -1,0 +1,41 @@
+package com.account;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.account.controller.AccountController;
+import com.account.entity.Account;
+import com.account.entity.AccountCreationStatus;
+import com.account.service.IAccountService;
+
+@ExtendWith(MockitoExtension.class)
+public class AccountTestController {
+	@Mock
+	IAccountService accountService;
+	
+	@InjectMocks
+	AccountController accountController;
+	
+	
+	
+	@Test
+	void testcreateAccount() throws Exception {
+		Account account = new Account();
+		AccountCreationStatus accountCreationStatus = new AccountCreationStatus();
+		account.setAccountId(1);
+		when(accountService.saveAccount(account)).thenReturn(accountCreationStatus);
+		assertEquals(account, accountController.createAccount(account));
+	}
+	
+	
+	
+	
+	
+
+}

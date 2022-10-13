@@ -25,8 +25,9 @@ export class SignUpComponent implements OnInit {
     observable.subscribe(
       (response:any)=>{
         console.log(response)
-        this.alert=true
+        
         this.accountCreationStatus=response as AccountCreationStatus;
+        this.alert=true
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -39,7 +40,7 @@ export class SignUpComponent implements OnInit {
       ,
       function(error){
         console.log(error);
-        alert("Something went wrong please try again!")
+        alert("Input fields cannot be Blank")
       }
     )
 
